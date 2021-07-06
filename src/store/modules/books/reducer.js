@@ -24,10 +24,8 @@ export default function books(state = [], action) {
 
       });
 
-    case 'UPDATE_BOOK': {
-      if (action.amount <= 0) {
-        return state;
-      }
+    case 'UPDATE_BOOK_SUCCESS': {
+
       return produce(state, draft => {
         const tripIndex = draft.findIndex(trip => trip.id === action.id);
 

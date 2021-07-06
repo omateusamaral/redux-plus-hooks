@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeBook, updateAmountBook } from '../../store/modules/books/actions';
+import { removeBook, updateAmountBookRequest } from '../../store/modules/books/actions';
 import { MdDelete, MdAddCircle, MdRemoveCircle } from 'react-icons/md';
 import './styles.css';
 export default function Books() {
@@ -11,11 +11,11 @@ export default function Books() {
     dispatch(removeBook(id));
   }
   function decrementAmount(trip) {
-    dispatch(updateAmountBook(trip.id, trip.amount - 1));
+    dispatch(updateAmountBookRequest(trip.id, trip.amount - 1));
   }
 
   function incrementAmount(trip) {
-    dispatch(updateAmountBook(trip.id, trip.amount + 2));
+    dispatch(updateAmountBookRequest(trip.id, trip.amount + 1));
   }
   return (
     <div>
