@@ -3,7 +3,7 @@ export default function books(state = [], action) {
   switch (action.type) {
     case 'ADD_BOOK':
       return produce(state,draft =>{
-        const tripIndex = draft.findIndex(id => id.id ===action.trip.id)
+        const tripIndex = draft.findIndex(trip => trip.id ===action.trip.id);
         if(tripIndex>=0){
           draft[tripIndex].amount +=1;
         }
@@ -14,6 +14,14 @@ export default function books(state = [], action) {
           });
         }
       });
+      case 'REMOVE_BOOK':
+        return produce(state, draft=>{
+          const tripIndex = draft.findIndex(trip => trip.id ===action.id);
+          if(tripIndex>=0){
+            draft.splice(tripIndex,1);
+          }
+
+        });
 
     default:
       return state;
