@@ -1,25 +1,33 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import { MdDelete } from 'react-icons/md';
 import './styles.css';
 export default function Books() {
+  const books = useSelector(state =>state.books);
+  console.log(books);
   return (
     <div>
-      <h1 className="title">Você solicitou 1 reservas</h1>
-      <div className="reservas">
-        <img
-          src="https://sujeitoprogramador.com/wp-content/uploads/2019/12/maceio.jpg"
-          alt="maceio"
-        />
-        <strong>viagem maceio 7 dias</strong>
-        <span>quantidade: 2</span>
-        <button
-          type="button"
-          onClick={() => { }}
-        >
-          <MdDelete size={20} color="#191919" />
+      <h1 className="title">Você solicitou {books.length} reservas</h1>
+      {
+        books.map((book)=>(
+          <div className="reservas" key={book.id}>
+          <img
+            src={book.image}
+            alt={book.title}
+          />
+          <strong>{book.title}</strong>
+          <span>quantidade:2</span>
+          <button
+            type="button"
+            onClick={() => { }}
+          >
+            <MdDelete size={20} color="#191919" />
+  
+          </button>
+        </div>
+        ))
+      }
 
-        </button>
-      </div>
       <footer>
         <button type="button">
           Solicitar Reservas
