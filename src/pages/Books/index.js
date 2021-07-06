@@ -16,7 +16,7 @@ export default function Books() {
             alt={book.title}
           />
           <strong>{book.title}</strong>
-          <span>quantidade:2</span>
+          <span>quantidade:{book.amount}</span>
           <button
             type="button"
             onClick={() => { }}
