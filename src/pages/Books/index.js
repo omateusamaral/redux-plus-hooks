@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {removeBook} from '../../store/modules/books/actions';
-import { MdDelete } from 'react-icons/md';
+import { removeBook, updateAmountBook } from '../../store/modules/books/actions';
+import { MdDelete, MdAddCircle, MdRemoveCircle } from 'react-icons/md';
 import './styles.css';
 export default function Books() {
   const books = useSelector(state => state.books);
@@ -9,6 +9,13 @@ export default function Books() {
 
   function handleRemoveBook(id) {
     dispatch(removeBook(id));
+  }
+  function decrementAmount(trip) {
+    dispatch(updateAmountBook(trip.id, trip.amount - 1));
+  }
+
+  function incrementAmount(trip) {
+    dispatch(updateAmountBook(trip.id, trip.amount + 2));
   }
   return (
     <div>
@@ -21,7 +28,15 @@ export default function Books() {
               alt={book.title}
             />
             <strong>{book.title}</strong>
-            <span>quantidade:{book.amount}</span>
+            <div id="amount">
+              <button type="button" onClick={() => decrementAmount(book)}>
+                <MdRemoveCircle size={25} color="#191919" />
+              </button>
+              <span>{book.amount}</span>
+              <button type="button" onClick={() => incrementAmount(book)}>
+                <MdAddCircle size={25} color="#191919" />
+              </button>
+            </div>
             <button
               type="button"
               onClick={() => handleRemoveBook(book.id)}

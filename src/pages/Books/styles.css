@@ -28,3 +28,8 @@ footer button{
   margin-top: 10px;
   font-weight: bold;
 }
+
+.reservas #amount{
+  display: flex;
+  align-items: center;
+}
