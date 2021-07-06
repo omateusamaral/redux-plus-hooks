@@ -13,6 +13,8 @@ takeLatest = só faz a ultima requisição feita pelo usuario
 import { select, call, put, all, takeLatest } from 'redux-saga/effects';
 import { addBookSuccess, updateAmountBookSuccess } from './actions';
 import api from '../../../services/api';
+import history from '../../../services/history';
+
 
 function* addToBook({ id }) {
 
@@ -45,6 +47,8 @@ function* addToBook({ id }) {
       amount: 1
     }
     yield put(addBookSuccess(data));
+
+    history.push('/books');
   }
 
 
