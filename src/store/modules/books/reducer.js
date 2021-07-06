@@ -11,7 +11,7 @@ devolvendo resultado para página que o chamar
 import produce from 'immer';
 export default function books(state = [], action) {
   switch (action.type) {
-    case 'ADD_BOOK':
+    case 'ADD_BOOK_SUCCESS':
       return produce(state, draft => {
         const tripIndex = draft.findIndex(trip => trip.id === action.trip.id);
         if (tripIndex >= 0) {

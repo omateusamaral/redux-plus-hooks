@@ -7,7 +7,7 @@ e nela passamos a função que queremos chamar neste exemplo é a "addBook"
 */
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import {addBook} from '../../store/modules/books/actions';
+import {addBookRequest} from '../../store/modules/books/actions';
 import { MdFlightTakeoff } from 'react-icons/md';
 import api from '../../services/api';
 import './styles.css';
@@ -24,8 +24,8 @@ export default function Home() {
     loadApi();
   }, []);
 
-  function handleAdd(trip) {
-    dispatch(addBook(trip));
+  function handleAdd(id) {
+    dispatch(addBookRequest(id));
   }
   return (
     <div>
@@ -38,7 +38,7 @@ export default function Home() {
               <span>Status: {trip.status ? 'Disponível' : 'Indisponivel'}</span>
               <button
                 type="button"
-                onClick={() => handleAdd(trip)}
+                onClick={() => handleAdd(trip.id)}
               >
                 <div>
                   <MdFlightTakeoff size={16} color="#fff" />
