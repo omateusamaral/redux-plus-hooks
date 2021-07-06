@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import {removeBook} from '../../store/modules/books/actions';
 import { MdDelete } from 'react-icons/md';
 import './styles.css';
 export default function Books() {
@@ -7,10 +8,7 @@ export default function Books() {
   const dispatch = useDispatch();
 
   function handleRemoveBook(id) {
-    dispatch({
-      type: 'REMOVE_BOOK',
-      id,
-    });
+    dispatch(removeBook(id));
   }
   return (
     <div>

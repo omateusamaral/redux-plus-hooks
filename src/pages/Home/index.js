@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import {addBook} from '../../store/modules/books/actions';
 import { MdFlightTakeoff } from 'react-icons/md';
 import api from '../../services/api';
 import './styles.css';
@@ -17,10 +18,7 @@ export default function Home() {
   }, []);
 
   function handleAdd(trip) {
-    dispatch({
-      type: 'ADD_BOOK',
-      trip
-    });
+    dispatch(addBook(trip));
   }
   return (
     <div>
