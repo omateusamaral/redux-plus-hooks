@@ -8,7 +8,7 @@ export default function Header() {
      <Link to="/">
      <img  className="logo" src={Logo} alt="Logo do projeto" />
      </Link>
-     <Link to="/books">
+     <Link className="reserva" to="/books">
        <div>
          <strong>Minhas Reservas</strong>
          <span>0 reservas</span>
