@@ -1,3 +1,10 @@
+/*
+vamos usar a home como exemplo
+
+para disparar um ação é necessário pegar a função useDispacth do react-redux
+
+e nela passamos a função que queremos chamar neste exemplo é a "addBook"
+*/
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {addBook} from '../../store/modules/books/actions';

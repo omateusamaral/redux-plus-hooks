@@ -1,3 +1,13 @@
+/* aqui no reducer que acontece a mágica
+
+pegando o type vindo da action é possível fazer o que quiser
+
+porém ele é imutável...
+
+mas existe a biblioteca immer que nos permite manipula-la criando um "rascunho"
+
+devolvendo resultado para página que o chamar
+*/
 import produce from 'immer';
 export default function books(state = [], action) {
   switch (action.type) {
